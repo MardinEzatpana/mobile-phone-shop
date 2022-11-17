@@ -1,21 +1,22 @@
 const products = [
+  
   {
     id: 1,
-    name: "iPhone 14 Pro",
-    brand: "Apple",
-    desc: "6.1-inch display",
-    price: 999,
-    image:
-      "https://res.cloudinary.com/dtry3gjmj/image/upload/v1668507047/mobile-phone/iphone-14-pro_ooygw8.jpg",
-  },
-  {
-    id: 2,
     name: "iPhone 14 plus",
     brand: "Apple",
     desc: "6.7-inch display",
     price: 880,
     image:
-      "https://res.cloudinary.com/dtry3gjmj/image/upload/v1668507051/mobile-phone/iphone14-plus_wfdny8.png",
+      "https://res.cloudinary.com/dtry3gjmj/image/upload/v1668698655/mobile-phone/iPhone_14_Plus_ccppqx.png",
+  },
+  {
+    id: 2,
+    name: "iPhone 14 Pro",
+    brand: "Apple",
+    desc: "6.1-inch display",
+    price: 999,
+    image:
+      "https://res.cloudinary.com/dtry3gjmj/image/upload/v1668696477/mobile-phone/iPhone_14_Pro_wfm7d5.png",
   },
   {
     id: 3,
@@ -24,7 +25,7 @@ const products = [
     desc: "5.4-inch mini display",
     price: 750,
     image:
-      "https://res.cloudinary.com/dtry3gjmj/image/upload/v1668507044/mobile-phone/iphone-13_yltjgb.jpg",
+      "https://res.cloudinary.com/dtry3gjmj/image/upload/v1668694996/mobile-phone/iPhone_13_gskzcm.png",
   },
   {
     id: 4,
@@ -33,7 +34,7 @@ const products = [
     desc: "6.4-inch display",
     price: 699,
     image:
-      "https://res.cloudinary.com/dtry3gjmj/image/upload/v1668507045/mobile-phone/iphone12_yubokb.jpg",
+      "https://res.cloudinary.com/dtry3gjmj/image/upload/v1668507045/mobile-phone/iphone12pro_hfbfvq.jpg",
   },
   {
     id: 5,
@@ -42,7 +43,7 @@ const products = [
     desc: "5.2-inch mini display",
     price: 548,
     image:
-      "https://res.cloudinary.com/chaoocharles/image/upload/v1629289889/online-shop/iphone12_efhrcp.jpg",
+      "https://res.cloudinary.com/dtry3gjmj/image/upload/v1668507045/mobile-phone/iphone12_yubokb.jpg",
   },
   {
     id: 6,
