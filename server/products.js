@@ -1,22 +1,21 @@
 const products = [
-  
   {
     id: 1,
-    name: "iPhone 14 plus",
-    brand: "Apple",
-    desc: "6.7-inch display",
-    price: 880,
-    image:
-      "https://res.cloudinary.com/dtry3gjmj/image/upload/v1668698655/mobile-phone/iPhone_14_Plus_ccppqx.png",
-  },
-  {
-    id: 2,
     name: "iPhone 14 Pro",
     brand: "Apple",
     desc: "6.1-inch display",
     price: 999,
     image:
       "https://res.cloudinary.com/dtry3gjmj/image/upload/v1668696477/mobile-phone/iPhone_14_Pro_wfm7d5.png",
+  },
+  {
+    id: 2,
+    name: "iPhone 14 plus",
+    brand: "Apple",
+    desc: "6.7-inch display",
+    price: 880,
+    image:
+      "https://res.cloudinary.com/dtry3gjmj/image/upload/v1668698655/mobile-phone/iPhone_14_Plus_ccppqx.png",
   },
   {
     id: 3,

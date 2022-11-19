@@ -18,17 +18,20 @@ const productsSlice = createSlice({
     name: "products",
     initialState,
     reducers: {},
-    extraReducers: {
-        [productsFetch.pending]: (state) => {
+    extraReducers: (builder) => {
+        builder.addMatcher(
+            productsFetch.pending, (state) => {
             state.status = "pending"
-        },
-        [productsFetch.fulfilled]: (state, action) => {
+        })
+        .addMatcher(
+            productsFetch.fulfilled, (state, action) => {
             state.status = "success",
             state.action = action.payload
-        },
-        [productsFetch.rejected]: (state) => {
+        })
+        .addMatcher(
+            productsFetch.rejected, (state) => {
             state.status = "rejected"
-        }
+        })
     }
 })
 
