@@ -86,7 +86,7 @@
                 color: gray;
 
                 &:hover {
-                    color: black;
+                    color: red;
                 }
             }
         }
@@ -141,6 +141,10 @@
             background: none;
             outline: none;
             cursor: pointer;
+
+            &:hover {
+                color: red;
+            }
           }
 
           .cart-checkout {

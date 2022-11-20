@@ -1,10 +1,31 @@
 import React from "react";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
+import { addToCart, clearCart, decreaseCart, removeFromCart } from "../../redux/cartSlice";
+import formatCurrency from "../../utility/utility";
 import "./cart.scss";
 
 const Cart = () => {
   const cart = useSelector((state) => state.cart);
+const dispatch = useDispatch();
+
+const itemPrice= cart.cartItems.reduce((total, product) => {
+  return (total + product.price * product.cartQuantity);
+}, 0)
+   const totalPraice=itemPrice
+
+const handleAddToCart = (product) => {
+  dispatch(addToCart(product));
+};
+const handleDecreaseCart = (product) => {
+  dispatch(decreaseCart(product));
+};
+  const handleRemoveFromCart = (product) => {
+    dispatch(removeFromCart(product));
+  };
+  const handleClearCart = () => {
+    dispatch(clearCart());
+  };
   return (
     <div className="cart-container">
       <h2>Shopping Cart</h2>
@@ -47,33 +68,33 @@ const Cart = () => {
                     <div>
                       <h3>{cartItem.name}</h3>
                       <p>{cartItem.desc}</p>
-                      <button >
+                      <button  onClick={()=> handleRemoveFromCart(cartItem)}>
                         Remove
                       </button>
                     </div>
                   </div>
                   <div className="cart-product-price">${cartItem.price}</div>
                   <div className="cart-product-quantity">
-                    <button >
+                    <button onClick={()=> handleDecreaseCart(cartItem)}>
                       -
                     </button>
                     <div className="count">{cartItem.cartQuantity}</div>
-                    <button >+</button>
+                    <button onClick={()=> handleAddToCart(cartItem)}>+</button>
                   </div>
                   <div className="cart-product-total-price">
-                    ${cartItem.price * cartItem.cartQuantity}
+                    {formatCurrency(cartItem.price * cartItem.cartQuantity)}
                   </div>
                 </div>
               ))}
           </div>
           <div className="cart-summary">
-            <button className="clear-btn" >
+            <button className="clear-btn" onClick={()=> handleClearCart()}>
               Clear Cart
             </button>
             <div className="cart-checkout">
               <div className="subtotal">
                 <span>Subtotal</span>
-                <span className="amount">${cart.cartTotalAmount}</span>
+                <span className="amount">{formatCurrency(totalPraice)}</span>
               </div>
               <p>Taxes and shipping calculated at checkout</p>
               <button>Check out</button>
