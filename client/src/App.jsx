@@ -6,6 +6,7 @@ import NotFound from "./components/common/notFound/NotFound";
 import Home from "./pages/home/Home";
 import { ToastContainer } from "react-toastify";
 import Cart from "./pages/cart/Cart";
+import Register from "./pages/auth/register/Register";
 
 function App() {
 
@@ -18,6 +19,7 @@ function App() {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="cart" element={<Cart />} />
+          <Route path="register" element={<Register />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
       </BrowserRouter>

@@ -2,7 +2,7 @@ import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import { addToCart, clearCart, decreaseCart, removeFromCart } from "../../redux/cartSlice";
-import formatCurrency from "../../utility/utility";
+import formatCurrency from "../../utils/formatCurrency";
 import "./cart.scss";
 
 const Cart = () => {
