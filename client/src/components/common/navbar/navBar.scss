@@ -23,6 +23,13 @@
     justify-content: space-around;
     align-items: center;
 
+    .auth{
+      width: 120px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
     .nav-bag {
       position: relative;
       display: flex;

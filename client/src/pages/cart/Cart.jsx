@@ -1,25 +1,32 @@
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { Link } from "react-router-dom";
-import { addToCart, clearCart, decreaseCart, removeFromCart } from "../../redux/cartSlice";
+import { Link, useNavigate } from "react-router-dom";
+import {
+  addToCart,
+  clearCart,
+  decreaseCart,
+  removeFromCart,
+} from "../../redux/cartSlice";
 import formatCurrency from "../../utils/formatCurrency";
 import "./cart.scss";
 
 const Cart = () => {
   const cart = useSelector((state) => state.cart);
-const dispatch = useDispatch();
+  const auth = useSelector((state) => state.auth);
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
 
-const itemPrice= cart.cartItems.reduce((total, product) => {
-  return (total + product.price * product.cartQuantity);
-}, 0)
-   const totalPraice=itemPrice
+  const itemPrice = cart.cartItems.reduce((total, product) => {
+    return total + product.price * product.cartQuantity;
+  }, 0);
+  const totalPraice = itemPrice;
 
-const handleAddToCart = (product) => {
-  dispatch(addToCart(product));
-};
-const handleDecreaseCart = (product) => {
-  dispatch(decreaseCart(product));
-};
+  const handleAddToCart = (product) => {
+    dispatch(addToCart(product));
+  };
+  const handleDecreaseCart = (product) => {
+    dispatch(decreaseCart(product));
+  };
   const handleRemoveFromCart = (product) => {
     dispatch(removeFromCart(product));
   };
@@ -68,18 +75,18 @@ const handleDecreaseCart = (product) => {
                     <div>
                       <h3>{cartItem.name}</h3>
                       <p>{cartItem.desc}</p>
-                      <button  onClick={()=> handleRemoveFromCart(cartItem)}>
+                      <button onClick={() => handleRemoveFromCart(cartItem)}>
                         Remove
                       </button>
                     </div>
                   </div>
                   <div className="cart-product-price">${cartItem.price}</div>
                   <div className="cart-product-quantity">
-                    <button onClick={()=> handleDecreaseCart(cartItem)}>
+                    <button onClick={() => handleDecreaseCart(cartItem)}>
                       -
                     </button>
                     <div className="count">{cartItem.cartQuantity}</div>
-                    <button onClick={()=> handleAddToCart(cartItem)}>+</button>
+                    <button onClick={() => handleAddToCart(cartItem)}>+</button>
                   </div>
                   <div className="cart-product-total-price">
                     {formatCurrency(cartItem.price * cartItem.cartQuantity)}
@@ -88,7 +95,7 @@ const handleDecreaseCart = (product) => {
               ))}
           </div>
           <div className="cart-summary">
-            <button className="clear-btn" onClick={()=> handleClearCart()}>
+            <button className="clear-btn" onClick={() => handleClearCart()}>
               Clear Cart
             </button>
             <div className="cart-checkout">
@@ -97,7 +104,16 @@ const handleDecreaseCart = (product) => {
                 <span className="amount">{formatCurrency(totalPraice)}</span>
               </div>
               <p>Taxes and shipping calculated at checkout</p>
-              <button>Check out</button>
+              {auth._id ? (
+                <button>Check out</button>
+              ) : (
+                <button
+                  className="cart-login"
+                  onClick={() => navigate("/login")}
+                >
+                  Login to Check out
+                </button>
+              )}
               <div className="continue-shopping">
                 <Link to="/">
                   <svg
