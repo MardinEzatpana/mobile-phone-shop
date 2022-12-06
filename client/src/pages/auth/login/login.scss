@@ -1,4 +1,4 @@
-.form {
+.formL {
     max-width: 350px;
     width: 100%;
     margin: 2rem auto;
@@ -24,6 +24,8 @@
 
     button {
         cursor: pointer;
+        background-color: #4b70e2;
+        color: #ffff;
 
         &:focus {
             border: none;
